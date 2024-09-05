@@ -11,6 +11,9 @@ const A_Button = document.getElementById("response-A");
 const B_Button = document.getElementById("response-B");
 const C_Button = document.getElementById("response-C");
 
+const televerse = document.getElementById("televerse");
+const reinitialise = document.getElementById("reinitialise");
+
 const appendHumanMessage = (message) => {
   const humanMessageElement = document.createElement("div");
   humanMessageElement.classList.add("message", "message-human");
@@ -91,12 +94,14 @@ const handleSaveClick = async (event) => {
 
 const handleColor = async (event) => {
   if (document.getElementById('style').getAttribute('href') === "/static/style.css") {
-    console.log("yeah")
+    console.log("yeah, inspired py Philippe")
     document.getElementById('style').setAttribute('href', "/static/dark_style.css");
+    document.getElementById('change_style').innerHTML = "&#x2600";
     return
   }
   if (document.getElementById('style').getAttribute('href') === "/static/dark_style.css") {
     document.getElementById('style').setAttribute('href', "/static/style.css");
+    document.getElementById('change_style').innerHTML = "&#x1F319";
     return
   }
 };
@@ -185,6 +190,13 @@ A_Button.addEventListener("click", handleA);
 B_Button.addEventListener("click", handleB);
 C_Button.addEventListener("click", handleC);
 
+
+
+const handleUpload = async (event) => {
+};
+
+televerse.addEventListener("click", handleUpload);
+
 const handle_nv_cours = async (event) => {
   appendAIMessage(async () => {
     const response = await fetch("/cours", {
@@ -202,3 +214,14 @@ const handle_nv_cours = async (event) => {
 };
 
 nvcoursButton.addEventListener("click", handle_nv_cours);
+
+const handleReinitialise = async (event) => {
+  const response = await fetch("/reini", {
+    method: "GET",
+  });
+  console.log(response)
+};
+
+
+reinitialise.addEventListener("click", handleReinitialise);
+

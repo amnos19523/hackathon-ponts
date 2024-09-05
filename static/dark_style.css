@@ -6,17 +6,20 @@
   --border-color: #aaaaaa;
   --secondary-color: #697565;
   --loader-bullet-size: 6px;
+  --transition-duration: 1s;
 }
 
 * {
   box-sizing: border-box;
 }
 
+
 body {
   background-color: var(--body-background-color);
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  transition: var(--transition-duration);
 }
 
 ul {
@@ -35,6 +38,7 @@ li {
   color: var(--main-color);
   padding: 50px;
   margin: 0 auto;
+  transition: var(--transition-duration);
 }
 
 .header {
@@ -52,6 +56,7 @@ li {
   margin-bottom: 30px;
 }
 
+
 .message {
   border: 1px solid var(--border-color);
   border-radius: 5px;
@@ -60,6 +65,7 @@ li {
 
 .message-human {
   background-color: var(--secondary-color);
+  transition: var(--transition-duration);
 }
 
 .prompt-container {
@@ -74,7 +80,16 @@ li {
   background-color: var(--main-background-color);
   padding: 20px;
   border-top: 1px solid var(--border-color);
+  transition: var(--transition-duration);
 }
+
+.message:hover,
+.message:active {
+  background-color: var(--body-background-color);
+  cursor: text;
+  transition: var(--transition-duration);
+}
+
 
 .qcm-container {
   position: fixed;
@@ -85,7 +100,27 @@ li {
   display: flex;
   align-items: center;
   background-color: var(--main-background-color);
-  margin-bottom: 500px;
+  transition: var(--transition-duration);
+}
+
+.qcm-block {
+  margin-left: 100px;
+  display: block;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.save-container {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--max-body-width);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-top: 1px solid var(--border-color);
+  transition: var(--transition-duration);
 }
 
 .prompt-label {
@@ -97,6 +132,7 @@ li {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   padding: 5px;
+  transition: var(--transition-duration);
 }
 
 .button {
@@ -104,13 +140,21 @@ li {
   padding: 5px;
   border-radius: 5px;
   background-color: var(--border-color);
+  transition: var(--transition-duration);
 }
 
 .button:hover,
 .button:active {
-  background-color: var(--body-background-color);
+  background-color: var(--border-color);
   cursor: pointer;
+  transition: var(--transition-duration);
 }
+
+.w3-sidebar {
+  position: fixed;
+}
+
+
 
 .hidden {
   display: none;
@@ -132,12 +176,8 @@ li {
   border-radius: 50%;
   background-color: var(--main-color);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  transition: var(--transition-duration);
 }
-
-.w3-sidebar {
-  position: fixed;
-}
-
 
 .loader div:nth-child(1) {
   left: calc(var(--loader-bullet-size) * 0.5);
